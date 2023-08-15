@@ -1,7 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:music_app/home/recent_songs.dart';
 
 import 'package:music_app/home/song_new.dart';
 import 'package:music_app/model/song_model.dart';
+
+import '../model/playlist.dart';
 
 class HomePage extends StatelessWidget {
   const HomePage({super.key});
@@ -9,6 +12,7 @@ class HomePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     List<Song> songs = Song.songs;
+    List<Playlist> playlist = Playlist.playlist;
     return Container(
       decoration: BoxDecoration(
           gradient: LinearGradient(
@@ -21,24 +25,25 @@ class HomePage extends StatelessWidget {
               icon: Icon(
                 Icons.confirmation_num_sharp,
               ),
-              label: 'hello'),
+              label: 'Home'),
           BottomNavigationBarItem(
               icon: Icon(
                 Icons.confirmation_num_sharp,
               ),
-              label: 'hello'),
+              label: 'Recents'),
           BottomNavigationBarItem(
               icon: Icon(
                 Icons.confirmation_num_sharp,
               ),
-              label: 'hello'),
+              label: 'Account'),
         ]),
         backgroundColor: Colors.transparent,
         appBar: AppBar(
-          actions: [
+          actions: const [
             Padding(
-              padding: const EdgeInsets.all(8.0),
-              child: CircleAvatar(),
+              padding: EdgeInsets.all(8.0),
+              child: CircleAvatar(
+                  backgroundImage: AssetImage('assets/7309681.jpg')),
             )
           ],
           leading: Icon(
@@ -57,12 +62,21 @@ class HomePage extends StatelessWidget {
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     Text(
-                      'Welcome',
+                      'Welcome...',
                       style: Theme.of(context)
                           .textTheme
                           .headlineMedium!
                           .copyWith(
                               fontWeight: FontWeight.bold, color: Colors.white),
+                    ),
+                    Text(
+                      'Music World',
+                      style: Theme.of(context)
+                          .textTheme
+                          .headlineSmall!
+                          .copyWith(
+                              fontWeight: FontWeight.w400,
+                              color: Colors.white60),
                     ),
                     const SizedBox(
                       height: 20,
@@ -75,7 +89,7 @@ class HomePage extends StatelessWidget {
                           fillColor: Colors.white,
                           filled: true),
                     ),
-                    SizedBox(
+                    const SizedBox(
                       height: 20,
                     ),
                     SizedBox(
@@ -92,6 +106,34 @@ class HomePage extends StatelessWidget {
                         },
                         itemCount: songs.length,
                       ),
+                    ),
+                    const SizedBox(
+                      height: 20,
+                    ),
+                    Text(
+                      'Playlists',
+                      style: Theme.of(context)
+                          .textTheme
+                          .headlineSmall!
+                          .copyWith(
+                              fontWeight: FontWeight.w600, color: Colors.white),
+                    ),
+                    const SizedBox(
+                      height: 20,
+                    ),
+                    Column(
+                      children: [
+                        ListView.builder(
+                          key: Key('recent_list'),
+                          shrinkWrap: true,
+                          itemCount: playlist.length,
+                          itemBuilder: (context, index) {
+                            return Recent(
+                              playlist: playlist[index],
+                            );
+                          },
+                        ),
+                      ],
                     ),
                   ],
                 )),

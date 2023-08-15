@@ -12,17 +12,17 @@ class Song {
     Song(
         descriptions: 'songs',
         title: 'eglsihsong',
-        url: 'assets/come-with-me-133764.mp3',
+        url: 'assets/good-night-160166.mp3',
         coverurl: 'assets/tobias-tullius-ms5KaYqstdQ-unsplash.jpg'),
     Song(
         descriptions: 'songs',
         title: 'eglsihsong',
-        url: 'assets/come-with-me-133764.mp3',
-        coverurl: 'assets/tobias-tullius-ms5KaYqstdQ-unsplash.jpg'),
+        url: 'assets/lofi-chill-medium-version-159456.mp3',
+        coverurl: 'assets/mark-cruz-w3-zaydSNRY-unsplash.jpg'),
     Song(
         descriptions: 'songs',
         title: 'eglsihsong',
-        url: 'assets/come-with-me-133764.mp3',
-        coverurl: 'assets/tobias-tullius-ms5KaYqstdQ-unsplash.jpg')
+        url: 'assets/lofi-chill-medium-version-159456.mp3',
+        coverurl: 'assets/lee-campbell-1w1OMV8CEeM-unsplash.jpg')
   ];
 }
